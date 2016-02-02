@@ -1,0 +1,27 @@
+Prbn08   START   1000
+         LDA     ZERO
+         STA     INDEX
+LOOP     LDA     =x'000003'
+         LDX     =x'ffccdd00'
+         STA     ALPHA,X
+t0       LDA     INDEX
+         org     2000
+         ltorg
+t1       resw    5
+         ADD     THREE
+t2       STA     =c'test'
+t3       COMP    =c'test'
+         JLT     LOOP
+exp      equ     t1-t2+t3-t0
+invexp   equ     t1-t2+ZERO-t0
+invexp2  equ     t1-LOOP+t2+5
+pcexp    equ     ZERO+ZERO
+K300     WORD    300
+ZERO     WORD    0
+THREE    equ     3
+INDEX    RESW    1
+         org
+ALPHA    RESW    1000
+         byte    c'test'
+         byte    x'ffcc'
+         END     Prbn08

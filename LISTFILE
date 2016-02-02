@@ -1,0 +1,30 @@
+      1000    Prbn08       START      1000                              
+      1003                   LDA      ZERO    001036                    
+      1006                   STA     INDEX    0C1039                    
+      1009      LOOP         LDA=x'000003'    001BFC                    
+      100c                   LDX=x'ffccdd00'    041BFF                    
+      100f                   STA   ALPHA,X    0C903C                    
+      1012        t0         LDA     INDEX    001039                    
+      1015                   org      2000                        ERROR!
+      1015                   org      2000                        ERROR!
+      1018        t1        resw         5                              
+      1027                   ADD     THREE    180000Operand is undefined
+      102a        t2         STA  =c'test'    0C1C03                    
+      102d        t3        COMP  =c'test'    281C03                    
+      1030                   JLT      LOOP    381009                    
+      1033       exp         equt1-t2+t3-t0                              
+      1033    invexp         equt1-t2+ZERO-t0                              
+      1033   invexp2         equt1-LOOP+t2+5                              
+      1033     pcexp         equ ZERO+ZERO                              
+      1033      K300        WORD       300    00012C                    
+      1036      ZERO        WORD         0    000000                    
+      1039     THREE         equ         3                              
+      1039     INDEX        RESW         1                        ERROR!
+      1039     INDEX        RESW         1                        ERROR!
+      103c     ALPHA        RESW      1000                              
+      1bf4                  byte   c'test'  74657374                    
+      1bf8                  byte   x'ffcc'      FFCC                    
+      1bfc         *  =x'000003'                                        
+      1bff         *=x'ffccdd00'                                        
+      1c03         *    =c'test'                                        
+      1bfc                   END    Prbn08                              
